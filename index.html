@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thyago Rodrigues | Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --primary: #3b82f6;
+      --primary-hover: #60a5fa;
+      --accent-purple: #8b5cf6;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .btn-contact {
+      background: var(--primary);
+      color: white !important;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .btn-contact:hover {
+      background: var(--primary-hover) !important;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    /* SEÇÃO HERO EM DUAS COLUNAS */
+    .hero {
+      padding-top: 5rem;
+      padding-bottom: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-green);
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-green);
+    }
+
+    h1 {
+      font-size: 3.25rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--primary-hover);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-description {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 0.85rem;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 0.75rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+    }
+
+    /* CARD DIREITO CLEAN */
+    .profile-clean-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: border-color 0.2s;
+    }
+
+    .profile-clean-card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+
+    .avatar-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .user-info h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .user-info p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16, 185, 129, 0.08);
+      color: var(--accent-green);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 0.5rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 1.25rem;
+      width: 100%;
+    }
+
+    .tag-item {
+      background: #1f2937;
+      color: var(--text-main);
+      font-size: 0.8rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    /* SEÇÃO DE TECNOLOGIAS */
+    .tech-title {
+      font-size: 2.75rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      letter-spacing: -1px;
+    }
+
+    .tech-title span {
+      color: #a78bfa;
+    }
+
+    .tech-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .tech-card {
+      background: #0f1623;
+      border: 1px solid #1a2333;
+      padding: 1.75rem;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .tech-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(167, 139, 250, 0.4);
+    }
+
+    .tech-icon-box {
+      width: 42px;
+      height: 42px;
+      background: #161f30;
+      border: 1px solid #253147;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #38bdf8;
+      font-size: 1.1rem;
+    }
+
+    .tech-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .tech-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .tech-footer-note {
+      font-size: 0.82rem;
+      color: #64748b;
+      margin-top: 1.75rem;
+    }
+
+    .tech-footer-note span {
+      color: #38bdf8;
+    }
+
+    /* SEÇÃO DE PROJETOS */
+    .section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .featured-project-card {
+      background: #0d1322;
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .featured-project-card:hover {
+      border-color: rgba(59, 130, 246, 0.5);
+      transform: translateY(-4px);
+    }
+
+    .preview-box {
+      background: #080c14;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--card-border);
+    }
+
+    .window-mockup {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .window-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .window-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #374151;
+    }
+
+    .window-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    .dashboard-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.6rem;
+      height: 90px;
+      padding-top: 0.5rem;
+    }
+
+    .bar {
+      flex: 1;
+      border-radius: 4px 4px 0 0;
+      background: linear-gradient(180deg, var(--primary) 0%, #1e1b4b 100%);
+    }
+
+    .project-info-side {
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-header-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent-green);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-info-side h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .project-info-side p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tech-pill {
+      background: #1e293b;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .project-action-links {
+      display: flex;
+      gap: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .project-action-links a {
+      color: var(--primary-hover);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .project-action-links a:hover {
+      text-decoration: underline;
+    }
+
+    .secondary-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .secondary-card {
+      background: #0d1322;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .secondary-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .secondary-preview {
+      background: #080c14;
+      padding: 1.5rem;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .hangman-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      letter-spacing: 6px;
+      color: var(--primary-hover);
+      background: #111827;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      border: 1px solid #1f2937;
+    }
+
+    .tree-nodes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .node-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .node {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #1e293b;
+      border: 1px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .alien-screen {
+      width: 100%;
+      height: 100%;
+      background: #050811;
+      border-radius: 8px;
+      border: 1px solid #1f2937;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.75rem;
+    }
+
+    .alien-row {
+      display: flex;
+      justify-content: space-around;
+      color: #ef4444;
+      font-size: 0.8rem;
+    }
+
+    .player-ship {
+      text-align: center;
+      color: var(--accent-green);
+      font-size: 0.9rem;
+    }
+
+    .secondary-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .featured-project-card {
+        grid-template-columns: 1fr;
+      }
+      .preview-box {
+        border-right: none;
+        border-bottom: 1px solid var(--card-border);
+      }
+      h1 { font-size: 2.5rem; }
+      .tech-title { font-size: 2.1rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#inicio" class="logo">TR<span>.</span></a>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#projetos">Projetos</a>
+        <a href="https://www.linkedin.com/in/thyago-rodrigues-46784b351/" target="_blank" rel="noopener noreferrer" class="btn-contact">Vamos conversar ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      
+      <!-- LADO ESQUERDO: Apresentação -->
+      <div class="hero-text">
+        <span class="badge"><span class="badge-dot"></span> Construindo, aprendendo e evoluindo</span>
+        <h1>Thyago Rodrigues</h1>
+        <p class="hero-subtitle">Desenvolvedor & Entusiasta de Dados</p>
+        <p class="hero-description">Transformo problemas em soluções visuais, jogos interativos e análises de dados funcionais. Gosto de aprender construindo projetos que resolvem desafios reais.</p>
+        
+        <div class="hero-btns">
+          <a href="#projetos" class="btn-primary">Explorar projetos ↘</a>
+          <a href="https://github.com/thy-rodrygues" target="_blank" rel="noopener noreferrer" class="btn-secondary">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/thyago-rodrigues-46784b351/" target="_blank" rel="noopener noreferrer" class="btn-secondary">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <!-- LADO DIREITO: CARD CLEAN -->
+      <div class="profile-clean-card">
+        <div class="avatar-circle">TR</div>
+        
+        <div class="user-info">
+          <h3>Thyago Rodrigues</h3>
+          <p>Ciência da Computação · FSA</p>
+        </div>
+
+        <div class="status-pill">
+          <span class="badge-dot"></span>
+          Disponível para Oportunidades
+        </div>
+
+        <div class="tags-container">
+          <span class="tag-item">Python</span>
+          <span class="tag-item">Power BI</span>
+          <span class="tag-item">SQL</span>
+          <span class="tag-item">Análise de Dados</span>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="sobre">
+      <p class="section-title">01 / Sobre mim</p>
+      <h2>Tecnologia me interessa.<br><span>Construir me move.</span></h2>
+      
+      <p style="color: var(--text-muted); max-width: 800px; font-size: 1.05rem; margin-bottom: 1.25rem;">
+        Sou estudante de Ciência da Computação e busco sempre transformar teoria em projetos práticos.
+        Tenho foco no desenvolvimento de lógica, manipulação e análise de dados, além de criar projetos interativos como jogos e dashboards analíticos.
+      </p>
+
+      <p style="color: var(--text-muted); max-width: 800px; font-size: 1.05rem;">
+        Atualmente, aprofundo meus conhecimentos em estruturas de dados, algoritmos, modelagem de bancos de dados relacionais e ferramentas de Business Intelligence. Procuro oportunidades para aplicar essa bagagem em desafios reais, colaborando com equipes dinâmicas e desenvolvendo soluções eficientes e orientadas a dados.
+      </p>
+    </section>
+
+    <!-- SEÇÃO DE TECNOLOGIAS -->
+    <section id="tecnologias">
+      <h2 class="tech-title">Tecnologias que <span>utilizo.</span></h2>
+      <p class="tech-subtitle">Ferramentas que venho estudando e aplicando nos meus projetos pessoais.</p>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <div>
+            <h3>Análise de Dados</h3>
+            <p>Power BI · Python (Pandas, NumPy) · Excel Avançado · DAX</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          </div>
+          <div>
+            <h3>Desenvolvimento</h3>
+            <p>Python · Lógica de Programação · Estruturas de Dados · POO</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          </div>
+          <div>
+            <h3>Bancos de Dados</h3>
+            <p>SQL · MySQL · Microsoft Access · Modelagem Relacional</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+          </div>
+          <div>
+            <h3>Ferramentas & Web</h3>
+            <p>Git · GitHub · VS Code · Jupyter · HTML5 · CSS3 · JavaScript</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="tech-footer-note"><span>*</span> Lista baseada nas tecnologias estudadas e utilizadas nos projetos apresentados.</p>
+    </section>
+
+    <!-- SEÇÃO DE PROJETOS -->
+    <section id="projetos">
+      <p class="section-title">03 / Trabalhos Selecionados</p>
+      <h2>Projetos em destaque</h2>
+
+      <div class="projects-container">
+
+        <!-- PROJETO 1 - DESTAQUE HORIZONTAL -->
+        <div class="featured-project-card">
+          <div class="preview-box">
+            <div class="window-mockup">
+              <div class="window-header">
+                <div class="window-dots">
+                  <span class="window-dot"></span>
+                  <span class="window-dot"></span>
+                  <span class="window-dot"></span>
+                </div>
+                <span class="window-title">powerbi_analytics.pbix</span>
+              </div>
+              <div class="dashboard-bars">
+                <div class="bar" style="height: 40%;"></div>
+                <div class="bar" style="height: 65%;"></div>
+                <div class="bar" style="height: 50%;"></div>
+                <div class="bar" style="height: 85%;"></div>
+                <div class="bar" style="height: 70%;"></div>
+                <div class="bar" style="height: 100%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-info-side">
+            <div>
+              <span class="project-header-tag">Dashboard · Visualização de Dados</span>
+              <h3>Dashboard em Power BI</h3>
+              <p>Painel administrativo interativo para análise visual de dados, tratamento de bases com Power Query, modelagem DAX e exibição de KPIs operacionais.</p>
+              
+              <div class="project-tech-pills">
+                <span class="tech-pill">Power BI</span>
+                <span class="tech-pill">Power Query</span>
+                <span class="tech-pill">DAX</span>
+                <span class="tech-pill">Excel</span>
+              </div>
+            </div>
+
+            <div class="project-action-links">
+              <a href="#" target="_blank">Ver demonstração ↗</a>
+              <a href="#" target="_blank">Código-fonte ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRID DE PROJETOS SECUNDÁRIOS -->
+        <div class="secondary-projects-grid">
+
+          <!-- PROJETO 2 -->
+          <div class="secondary-card">
+            <div class="secondary-preview">
+              <div class="hangman-display">
+                P Y T H _ N
+              </div>
+            </div>
+            <div class="secondary-body">
+              <div>
+                <span class="project-header-tag">Lógica · Jogo</span>
+                <h3>Jogo da Forca</h3>
+                <p>Aplicação interativa desenvolvida para praticar manipulação de strings, controle de estado, estruturas condicionais e laços de repetição.</p>
+                <div class="project-tech-pills">
+                  <span class="tech-pill">Python</span>
+                  <span class="tech-pill">Lógica</span>
+                </div>
+              </div>
+              <div class="project-action-links" style="margin-top: 1rem;">
+                <a href="https://jogo-da-forca--Thy-rodrygues11.replit.app" target="_blank">Ver demonstração ↗</a>
+                <a href="#" target="_blank">Código-fonte ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJETO 3 -->
+          <div class="secondary-card">
+            <div class="secondary-preview">
+              <div class="tree-nodes">
+                <div class="node">DT</div>
+                <div class="node-row">
+                  <div class="node">L</div>
+                  <div class="node">R</div>
+                </div>
+              </div>
+            </div>
+            <div class="secondary-body">
+              <div>
+                <span class="project-header-tag">Ciência de Dados · ML</span>
+                <h3>Classificador / Análise de Dados</h3>
+                <p>Projeto focado no tratamento de dados, análise exploratória e implementação de algoritmo classificador para identificação de padrões.</p>
+                <div class="project-tech-pills">
+                  <span class="tech-pill">Python</span>
+                  <span class="tech-pill">Pandas</span>
+                  <span class="tech-pill">Scikit-Learn</span>
+                </div>
+              </div>
+              <div class="project-action-links" style="margin-top: 1rem;">
+                <a href="#" target="_blank">Ver demonstração ↗</a>
+                <a href="#" target="_blank">Código-fonte ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJETO 4 -->
+          <div class="secondary-card">
+            <div class="secondary-preview">
+              <div class="alien-screen">
+                <div class="alien-row">👾 👾 👾 👾</div>
+                <div class="player-ship">▲</div>
+              </div>
+            </div>
+            <div class="secondary-body">
+              <div>
+                <span class="project-header-tag">Desenvolvimento de Jogos</span>
+                <h3>Jogo Invasão Alien</h3>
+                <p>Jogo estilo arcade 2D onde o jogador controla uma nave para defender a Terra contra frotas alienígenas, com pontuação e níveis de dificuldade.</p>
+                <div class="project-tech-pills">
+                  <span class="tech-pill">Python</span>
+                  <span class="tech-pill">Pygame</span>
+                  <span class="tech-pill">POO</span>
+                </div>
+              </div>
+              <div class="project-action-links" style="margin-top: 1rem;">
+                <a href="#" target="_blank">Ver demonstração ↗</a>
+                <a href="#" target="_blank">Código-fonte ↗</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Thyago Rodrigues — Feito com código e dados.</p>
+  </footer>
+
+</body>
+</html>
